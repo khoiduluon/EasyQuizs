@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cập nhật</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400&display=swap" rel="stylesheet">
+	<script src="/js/angular.min.js"></script>
+	<style>
+		body {
+			font-family: 'Comfortaa', cursive;
+			background: #007bff;
+			background: linear-gradient(to left, #d859d2, #33AEFF);
+		}
+
+		.mg-custom {
+			margin-top: 20px;
+			height: 100vh;
+		}
+
+		.width-custom {
+			border-radius: 17px;
+			width: 60vh;
+		}
+
+		.btn-google {
+			color: white;
+			background-color: #ea4335;
+		}
+
+		.btn-facebook {
+			color: white;
+			background-color: #3b5998;
+		}
+
+		.btn-facebook:hover {
+			color: white;
+			background-color: #23314f;
+		}
+
+		.btn-google:hover {
+			color: white;
+			background-color: #85271e;
+		}
+
+		.account-icon-custom {
+			font-size: 150px;
+			color: #3b5998;
+		}
+	</style>
+</head>
+
+<body ng-app="updateAccountApp">
+	<div class="row mg-custom">
+		<div class="col d-flex justify-content-center align-items-center flex-column">
+			<form class="width-custom bg-light" ng-controller="updateAccountCtrl">
+				<h3 class="mx-5 my-4">Cập nhật hồ sơ</h3>
+				<hr class="mx-5">
+				<div class="row mx-2 mt-3">
+					<div class="form-group col-6">
+						<label for="manv"><b>UserName:</b> </label>
+						<input type="text" class="form-control" id="manv" placeholder="Nhập UserName"
+							ng-model="user.username">
+					</div>
+					<div class="form-group col-6">
+						<label for="hovaten"><b>Họ và tên:</b> </label>
+						<input type="text" class="form-control" id="hovaten" placeholder="Nhập Họ và tên"
+							ng-model="user.fullname">
+					</div>
+				</div>
+				<div class="row mx-2 mt-3">
+					<div class="form-group col-6 row m-0">
+						<label for="clb"><b>Giới tính:</b> </label>
+						<div class="form-check col-6">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+								ng-model="user.gender" value="true">
+							<label class="form-check-label" for="flexRadioDefault1">
+								Nam
+							</label>
+						</div>
+						<div class="form-check col-6">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+								ng-model="user.gender" value="false">
+							<label class="form-check-label" for="flexRadioDefault2">
+								Nữ
+							</label>
+						</div>
+					</div>
+					<div class="form-group col-6">
+						<label for="luong"><b>Email:</b> </label>
+						<input type="text" class="form-control" id="email" placeholder="Nhập email"
+							ng-model="user.email">
+					</div>
+				</div>
+				<div class="row mx-2  mt-3">
+					<div class="form-group col-6">
+						<label for="clb"><b>Ngày sinh:</b> </label>
+						<input type="text" class="form-control" id="ngaysinh" placeholder="Nhập ngày sinh"
+							ng-model="user.birthday">
+					</div>
+					<div class="form-group col-6">
+						<label for="luong"><b>Học phí</b> </label>
+						<input type="text" class="form-control" id="hocphi" placeholder="Nhập học phí"
+							ng-model="user.schoolfee">
+					</div>
+				</div>
+				<div class="row mx-2  mt-3">
+					<div class="form-group col-6">
+						<label for="clb"><b>Điểm</b> </label>
+						<input type="text" class="form-control" id="ngaysinh" placeholder="Nhập ngày sinh"
+							ng-model="user.marks">
+					</div>
+				</div>
+				<div class="row mx-5 mt-3 fst-italic fw-bold" style=" color:blue" id="validate">
+					
+				</div>
+				<div class="my-4 mx-4  row">
+					<button type="button" class="btn mb-2" ng-click="Update()" style="background-color:#b4aee8">Cập nhật</button>
+					<a href="index.html" class="btn btn-secondary">Huỷ</a>
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button> -->
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+
+</body>
+<script>
+	let app = angular.module('updateAccountApp', []);
+	app.controller('updateAccountCtrl', function ($scope) {
+		let item = sessionStorage.getItem('user');
+        let userSesion = JSON.parse(item);
+		console.log(userSesion);
+
+		$scope.user = userSesion;
+		
+		$scope.Update = function () {
+				$scope.user = angular.copy($scope.user);
+			//console.log($scope.user);	
+			document.getElementById('validate').innerHTML = "Cập nhật thành công";
+		}
+	});
+</script>
+
+</html>

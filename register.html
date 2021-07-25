@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Đăng ký</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400&display=swap" rel="stylesheet">
+	<script src="/js/angular.min.js"></script>
+	<style>
+		body {
+			font-family: 'Comfortaa', cursive;
+			background: #007bff;
+			background: linear-gradient(to left, #d859d2, #33AEFF);
+		}
+
+		.mg-custom {
+			margin-top: 20px;
+			height: 100vh;
+		}
+
+		.width-custom {
+			border: 1px;
+			border-radius: 17px;
+			width: 60vh;
+			box-shadow: 5px 5px 5px 5px rgb(1, 0, 0, 0.2);
+
+		}
+
+		.btn-google {
+			color: white;
+			background-color: #ea4335;
+		}
+
+		.btn-facebook {
+			color: white;
+			background-color: #3b5998;
+		}
+
+		.btn-facebook:hover {
+			color: white;
+			background-color: #23314f;
+		}
+
+		.btn-google:hover {
+			color: white;
+			background-color: #85271e;
+		}
+
+		.account-icon-custom {
+			font-size: 150px;
+			color: #3b5998;
+		}
+	</style>
+</head>
+
+<body ng-app="registerApp">
+	<div class="row mg-custom">
+		<div class="col d-flex justify-content-center align-items-center flex-column">
+			<form class="width-custom aa bg-light" ng-controller="registerController" name="regForm" novalidate>
+				<h3 class="my-4 mx-5 my-4">Đăng ký thành viên</h3>
+				<hr class="mx-5">
+				<div class="row mx-2 mt-3">
+					<div class="form-group col-6">
+						<label for="manv"><b> UserName:</b> </label>
+						<input type="text" class="form-control" id="manv" placeholder="Nhập UserName"
+							ng-model="user.username" required ng-minlength="1">
+					</div>
+					<div class="form-group col-6">
+						<label for="hovaten"><b>Họ và tên:</b> </label>
+						<input type="text" class="form-control" id="hovaten" placeholder="Nhập Họ và tên"
+							ng-model="user.fullname" required ng-minlength="1">
+					</div>
+				</div>
+				<div class="row mx-2 mt-3">
+					<div class="form-group col-6 row m-0">
+						<label for="clb"><b>Giới tính: </b> </label>
+						<div class="form-check col-6">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+								ng-model="user.gender" value="true" required>
+							<label class="form-check-label" for="flexRadioDefault1">
+								Nam
+							</label>
+						</div>
+						<div class="form-check col-6">
+							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+								ng-model="user.gender" value="false">
+							<label class="form-check-label" for="flexRadioDefault2">
+								Nữ
+							</label>
+						</div>
+					</div>
+					<div class="form-group col-6">
+						<label for="luong"><b>Email: </b> </label>
+						<input type="text" class="form-control" id="email" placeholder="Nhập email"
+							ng-model="user.email">
+					</div>
+				</div>
+				<div class="row mx-2  mt-3">
+					<div class="form-group col-6">
+						<label for="clb"><b>Ngày sinh: </b> </label>
+						<input type="text" class="form-control" id="ngaysinh" placeholder="Nhập ngày sinh"
+							ng-model="user.birthday">
+					</div>
+					<div class="form-group col-6">
+						<label for="luong"><b>Học phí: </b> </label>
+						<input type="text" class="form-control" id="hocphi" placeholder="Nhập học phí"
+							ng-model="user.schoolfee">
+					</div>
+				</div>
+				<div class="row mx-2  mt-3">
+					<div class="form-group col-6">
+						<label for="clb"><b>Điểm: </b> </label>
+						<input type="text" class="form-control" id="ngaysinh" placeholder="Nhập điểm"
+							ng-model="user.marks">
+					</div>
+				</div>
+				<div class="row mx-2 mt-3">
+					<div class="form-group col-6">
+						<label for="thuong"><b>Password: </b> </label>
+						<input type="password" class="form-control" id="thuong" placeholder="Nhập password"
+							ng-model="user.password">
+					</div>
+					<div class="form-group col-6">
+						<label for="phucap"><b>Nhập lại Password: </b></label>
+						<input type="password" class="form-control" id="phucap" placeholder="Nhập lại password"
+							ng-model="confirmpassword">
+					</div>
+				</div>
+				<div class="row mx-5 mt-3 fst-italic fw-bold" style=" color:red" id="validate">
+
+				</div>
+				<p class="mx-5 my-3 fs-5" id="adu" style="color:red"></p>
+				<div class="my-4 mx-4  row">
+					<button type="button" class="btn mb-2" ng-click="Register()" style="background-color:#b4aee8">Đăng
+						ký</button>
+					<a href="index.html" class="btn btn-secondary">Huỷ</a>
+					<!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button> -->
+				</div>
+
+			</form>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+	<script src="./js/Students.js"></script>
+
+	<script>
+		let app = angular.module('registerApp', []);
+		app.controller('registerController', function ($scope) {
+			$scope.listUsers = listUsers;
+			console.log($scope.listUsers);
+
+
+
+			$scope.Register = function () {
+				for (let i = 0; i < $scope.listUsers.length; i++) {
+					let checkUser = $scope.user.username == $scope.listUsers[i].username ? false : true;
+					let userNull = $scope.user.username == null ? false : true;
+					let checkNewPassNull = $scope.user.password == null && $scope.confirmpassword == null ? false : true;
+					let checkComparePass = $scope.user.password == $scope.confirmpassword ? true : false;
+					// console.log($scope.user.password);
+					// console.log($scope.user.confirmpassword);
+					console.log(checkNewPassNull);
+					if (checkUser == false) {
+						document.getElementById('validate').innerHTML = "Username đã được sử dụng";
+						console.log("user" + checkUser);
+						break;
+					} else if (checkNewPassNull == false) {
+						document.getElementById('validate').innerHTML = "Password không được để trống";
+						console.log("pasnull" + checkNewPassNull);
+						break;
+					} else if (checkComparePass == false) {
+						document.getElementById('validate').innerHTML = "Password không khớp";
+						console.log("compare" + checkComparePass);
+						break;
+					} else {
+						console.log("OK");
+						$scope.listUsers.push(angular.copy($scope.user));
+						console.log($scope.listUsers);
+						document.getElementById('validate').innerHTML = "Đăng ký thành công";
+						document.getElementById('validate').style.color = "blue";
+						break;
+					}
+				}
+
+				// let password = $scope.user.password;
+				// let confirmpassword = $scope.user.confirmpassword;
+				// console.log(password, confirmpassword);
+				// if (password === confirmpassword) {
+				// 	$scope.listUsers.push(angular.copy($scope.user));
+				// 	console.log($scope.listUsers);
+				// 	document.getElementById('adu').innerHTML = "Thêm thành công";
+				// 	document.getElementById('adu').style.color = "blue";
+				// } else {
+				// 	document.getElementById('adu').innerHTML = "Thêm thất bại";
+				//}
+			}
+
+
+		});
+	</script>
+</body>
+
+</html>

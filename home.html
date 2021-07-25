@@ -1,0 +1,50 @@
+<div class="text-center my-4" style="color: white">
+  <h1>Các khoá trắc nghiệm</h1>
+  <p>──────────&#10028─────────</p>
+</div>
+    <article class="m-0 p-0 col-md-12" >
+      <div class="row row-cols-1 row-cols-md-3 g-4 p-2">
+        <div class="col" ng-repeat="mh in monhoc | limitTo:6:start">
+          <div class="card h-100">
+            <img src="./logos/{{mh.Logo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{mh.Name}}</h5>
+              <p class="card-text"></p>
+            </div>
+            <div class="card-footer row m-0 d-flex justify-content-between">
+              <button class="col-3 my-2 py-2 btn bg-primary " type="button"><a href="#!thi/{{mh.Id}}/{{mh.Name}}" style="color: white" class="text-decoration-none">Start</a></button>
+              <h5 class="col-4 my-2 py-2 ps-4 "><span class="badge bg-warning">Miễn phí</span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <nav class="d-flex my-2 justify-content-center"  aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <button class="page-link btn" aria-label="Previous" ng-click="prev()">
+                <span aria-hidden="true">&laquo;</span>
+              </button>
+            </li>
+            <li class="page-item">
+              <button class="page-link btn" aria-label="Next" ng-click="next()"> 
+                <span aria-hidden="true">&raquo;</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </article>
+    <!-- <aside>
+      <div class="card position-absolute bottom-0 end-0 translate-middle-y" >
+        <div class="card-header">
+          Danh mục môn học
+        </div>
+        <div class="card-body m-0 p-0">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="mh in monhoc | orderBy:'Name'">{{mh.Name}}</li>
+          </ul>
+        </div>
+      </div>
+    </aside> -->

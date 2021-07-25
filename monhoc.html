@@ -1,0 +1,4 @@
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action" ng-repeat="mh in monhoc | orderBy:'Name'">
+        <a href="#!thi/{{mh.Id}}/{{mh.Name}}" class="text-decoration-none" style="color:black">{{mh.Name | uppercase}}</a></li>
+</ul>

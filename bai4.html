@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping Mall</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400&display=swap" rel="stylesheet"> 
+  <style>
+    body{
+    font-family: 'Comfortaa', cursive;
+    background-color:#aaaaaa;
+    }
+    .bg-custom{
+      background-color:#f6f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="col-8 m-auto">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Nhập lương
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nhập lương tháng</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form>
+              <div class="row ms-0 me-0 mt-3">
+                <div class="form-group col-6">
+                  <label for="manv">Mã nhân viên</label>
+                  <input type="text" class="form-control" id="manv" placeholder="Nhập Mã nhân viên">
+                </div>
+                <div class="form-group col-6">
+                  <label for="hovaten">Họ và tên</label>
+                  <input type="text" class="form-control" id="hovaten" placeholder="Nhập Họ và tên">
+                </div>
+              </div>
+              <div class="row ms-0 me-0 mt-3">
+                <div class="form-group col-6">
+                  <label for="clb">Câu lạc bộ</label>
+                  <select id="clb" class="form-control">
+                    <option value="hcm">TP.Hồ chí minh</option>
+                    <option value="hn">Hà nội</option>
+                    <option value="dn">Đà nẵng</option>
+                  </select>
+                </div>
+                <div class="form-group col-6">
+                  <label for="luong">Lương</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="luong" placeholder="Nhập lương">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">VNĐ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row ms-0 me-0 mt-3">
+                <div class="form-group col-6">
+                  <label for="thuong">Thưởng</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="thuong" placeholder="Nhập tiền thưởng">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">VNĐ</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group col-6">
+                  <label for="phucap">Phụ cấp</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="phucap" placeholder="Nhập tiền phụ cấp">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">VNĐ</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row ms-0 me-0 mt-3">
+                <div class="form-group col-12">
+                  <label for="ghichu">Ghi chú</label>
+                  <textarea class="form-control" id="ghichu" rows="3" placeholder="Nhập ghi chú"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer data-">
+                <button type="button" class="btn btn-primary">Lưu</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
